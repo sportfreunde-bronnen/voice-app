@@ -17,7 +17,8 @@ const app = new App(config);
 // App Logic
 // =================================================================================
 
-app.setHandler({
+app.setHandler(
+  {
     'LAUNCH': function() {
         this.toIntent('HelloWorldIntent');
     },
@@ -29,6 +30,10 @@ app.setHandler({
     'MyNameIsIntent': function(name) {
         this.tell('Hey ' + name.value + ', nice to meet you!');
     },
-});
+  },
+
+  require('./handler/NextEvents')
+
+);
 
 module.exports.app = app;

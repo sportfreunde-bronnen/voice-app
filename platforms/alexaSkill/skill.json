@@ -1,0 +1,44 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "de-DE": {
+          "summary": "Informationen rund um die Sportfreunde Bronnen",
+          "examplePhrases": [
+            "Alexa, starte Sportfreunde Bronnen"
+          ],
+          "keywords": [],
+          "name": "Sportfreunde Bronnen",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cd8c/6e02176c447440e18a5b55cd88f3b12f/APP_ICON?versionId=V508qjjwtEzLzGJfsDClp9DzhP5GeRpy&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1541598431&Signature=QLb6BKecZ1RaxmR8CQrkVEE6uPo%3D",
+          "description": "Informationen zu den Sportfreunden Bronnen",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/2bb8/9c0890c7b7c64de0ab251f20947d611b/APP_ICON_LARGE?versionId=.f5Cvh4abjvjZqL83h_rj9wc.L.qRiUM&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1541598431&Signature=1z8h3tNHt79rf0Y9up3nxIlgXNI%3D"
+        }
+      },
+      "isAvailableWorldwide": true,
+      "category": "FRIENDS_AND_FAMILY",
+      "distributionCountries": []
+    },
+    "apis": {
+      "custom": {
+        "interfaces": [
+          {
+            "type": "AUDIO_PLAYER"
+          }
+        ]
+      }
+    },
+    "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "locales": {
+        "de-DE": {
+          "privacyPolicyUrl": "https://sf-bronnen.de/home/datenschutz"
+        }
+      },
+      "isExportCompliant": true,
+      "containsAds": false,
+      "isChildDirected": false,
+      "usesPersonalInfo": false
+    }
+  }
+}

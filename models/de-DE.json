@@ -1,0 +1,86 @@
+{
+	"invocation": "sportfreunde bronnen",
+	"inputTypes": [
+		{
+			"name": "Event",
+			"values": [
+				{
+					"value": "mittagessen"
+				},
+				{
+					"value": "jahreshauptversammlung"
+				},
+				{
+					"value": "uhlmann halder cup"
+				},
+				{
+					"value": "zwickel"
+				},
+				{
+					"value": "weihnachtsfeier"
+				}
+			]
+		}
+	],
+	"alexa": {
+		"interactionModel": {
+			"languageModel": {
+				"intents": [
+					{
+						"name": "AMAZON.CancelIntent",
+						"samples": []
+					},
+					{
+						"name": "AMAZON.HelpIntent",
+						"samples": []
+					},
+					{
+						"name": "AMAZON.StopIntent",
+						"samples": []
+					},
+					{
+						"name": "AMAZON.NavigateHomeIntent",
+						"samples": []
+					},
+					{
+						"name": "AMAZON.PauseIntent",
+						"samples": []
+					},
+					{
+						"name": "AMAZON.ResumeIntent",
+						"samples": []
+					}
+				]
+			}
+		}
+	},
+	"intents": [
+		{
+			"name": "NextEvents",
+			"phrases": [
+				"nach den terminen in diesem jahr",
+				"nach den terminen dieses jahr",
+				"wann mal wieder party ist",
+				"wann mal wieder was los ist",
+				"nach den kommenden veranstaltungen",
+				"nach den nächsten veranstaltungen"
+			]
+		},
+		{
+			"name": "SpecificEvent",
+			"phrases": [
+				"wann findet {EVENT} statt",
+				"wann das {EVENT} ist",
+				"wann ist wieder {EVENT}",
+				"nach dem {EVENT}",
+				"wann ist {EVENT}"
+			],
+			"inputs": [
+				{
+					"name": "EVENT",
+					"type": "Event"
+				}
+			]
+		}
+	]
+}

@@ -17,7 +17,6 @@ class SfbWebsiteApiBase {
    * Send request
    */
   async send() {
-    console.log(this.getUrl());
     let options = {
       uri: this.getUrl(),
       json: true

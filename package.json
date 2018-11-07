@@ -6,7 +6,8 @@
   "dependencies": {
     "jovo-framework": "^1.0.0",
     "request": "^2.88.0",
-    "request-promise-native": "^1.0.5"
+    "request-promise-native": "^1.0.5",
+    "sprintf": "^0.1.5"
   },
   "devDependencies": {},
   "scripts": {

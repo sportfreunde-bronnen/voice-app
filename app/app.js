@@ -20,19 +20,12 @@ const app = new App(config);
 app.setHandler(
   {
     'LAUNCH': function() {
-        this.toIntent('HelloWorldIntent');
-    },
-
-    'HelloWorldIntent': function() {
-        this.ask('Hello World! What\'s your name?', 'Please tell me your name.');
-    },
-
-    'MyNameIsIntent': function(name) {
-        this.tell('Hey ' + name.value + ', nice to meet you!');
-    },
+        this.tell('Herzlich willkommen bei den Sportfreunden Bronnen!')
+    }
   },
 
-  require('./handler/NextEvents')
+  require('./handler/NextEvents'),
+  require('./handler/GetNews')
 
 );
 

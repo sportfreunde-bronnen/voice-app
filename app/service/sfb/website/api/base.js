@@ -17,8 +17,9 @@ class SfbWebsiteApiBase {
    * Send request
    */
   async send() {
+    console.log(this.getUrl());
     let options = {
-      uri: this.url + this.uri,
+      uri: this.getUrl(),
       json: true
     };
     return new Promise((resolve, reject) => {
@@ -30,6 +31,10 @@ class SfbWebsiteApiBase {
           reject(error);
         });
     });
+  }
+
+  getUrl() {
+    return this.url + this.uri;
   }
 }
 

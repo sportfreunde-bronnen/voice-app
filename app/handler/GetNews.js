@@ -21,6 +21,7 @@ module.exports = {
     news
       .send()
       .then((data) => {
+        console.log(data);
         if (data.length > 0) {
           obj.setSessionAttribute('currentNewsIndex', 0);
           obj.setSessionAttribute('currentNewsData', data);
@@ -31,7 +32,11 @@ module.exports = {
             .addBreak('500ms');
           this.toIntent('VReadNews', speech)
         } else {
-          speech.addText('Aktuell gibt es keine vorhandenen Meldungen.');
+          speech
+            .addText('Aktuell gibt es noch keine aktuellen')
+            .addText(department.id, department.id !== undefined)
+            .addText('Meldungen. Versuche es gerne ein ander Mal wieder!');
+          this.tell(speech);
         }
       })
       .catch((err) => {

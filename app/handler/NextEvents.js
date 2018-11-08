@@ -22,14 +22,18 @@ module.exports = {
         let speech = this.speechBuilder();
 
         if (events.length > 0) {
-          speech.addText('Die kommenden Termine der Sportfreunde lauten wir folgt:');
+
+          speech.addText('Die kommenden Termine der Sportfreunde lauten wie folgt:');
+          let now = new Date();
 
           events.forEach((event) => {
-            speech
-              .addText(event.title)
-              .addText('am ' + event.dateStart + '.')
-              .addBreak('300ms');
-
+            let eventDate = new Date(event.dateStart);
+            if (eventDate > now) {
+              speech
+                .addText(event.title)
+                .addText('am ' + event.dateStart + '.')
+                .addBreak('300ms');
+            }
           });
 
         } else {

@@ -30,7 +30,7 @@ module.exports = {
             .addText('gegen ' + latest.opponent, latest.home_game)
             .addText('beim ' + latest.opponent, !latest.home_game)
             .addText('wurde mit ' + latest.goals_sfb + ':' + latest.goals_opponent, !(latest.goals_sfb === latest.goals_opponent))
-            .addText('endete unentschieden!', (latest.goals_sfb === latest.goals_opponent))
+            .addText('endete ' + latest.goals_sfb + ':' + latest.goals_opponent + ' unentschieden!', (latest.goals_sfb === latest.goals_opponent))
             .addText('gewonnen!', (latest.goals_sfb > latest.goals_opponent))
             .addText('verloren!', (latest.goals_sfb < latest.goals_opponent));
 

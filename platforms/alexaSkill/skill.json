@@ -9,9 +9,9 @@
           ],
           "keywords": [],
           "name": "Sportfreunde Bronnen",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cd8c/6e02176c447440e18a5b55cd88f3b12f/APP_ICON?versionId=V508qjjwtEzLzGJfsDClp9DzhP5GeRpy&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1541598431&Signature=QLb6BKecZ1RaxmR8CQrkVEE6uPo%3D",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cd8c/6e02176c447440e18a5b55cd88f3b12f/APP_ICON?versionId=V508qjjwtEzLzGJfsDClp9DzhP5GeRpy&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1542191535&Signature=LTqMsU8bVUtM2mI65n3Fk4dSaO0%3D",
           "description": "Informationen zu den Sportfreunden Bronnen",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/2bb8/9c0890c7b7c64de0ab251f20947d611b/APP_ICON_LARGE?versionId=.f5Cvh4abjvjZqL83h_rj9wc.L.qRiUM&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1541598431&Signature=1z8h3tNHt79rf0Y9up3nxIlgXNI%3D"
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/2bb8/9c0890c7b7c64de0ab251f20947d611b/APP_ICON_LARGE?versionId=.f5Cvh4abjvjZqL83h_rj9wc.L.qRiUM&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1542191535&Signature=uZAxZ2VjqIf4HLJ7yiRm6SfUQCg%3D"
         }
       },
       "isAvailableWorldwide": true,
@@ -20,6 +20,10 @@
     },
     "apis": {
       "custom": {
+        "endpoint": {
+          "sslCertificateType": "Wildcard",
+          "uri": "https://webhook.jovo.cloud/df4af05c-c0f3-42ee-b13e-d16c8e895441"
+        },
         "interfaces": [
           {
             "type": "AUDIO_PLAYER"

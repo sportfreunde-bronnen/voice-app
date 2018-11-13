@@ -30,6 +30,9 @@
         {
           "name": "NextEvents",
           "samples": [
+            "nach veranstaltungen",
+            "nach terminen",
+            "nach den nächsten terminen",
             "nach den terminen in diesem jahr",
             "nach den terminen dieses jahr",
             "wann mal wieder party ist",
@@ -52,6 +55,141 @@
             "wann ist wieder {EVENT}",
             "nach dem {EVENT}",
             "wann ist {EVENT}"
+          ]
+        },
+        {
+          "name": "GetNews",
+          "slots": [
+            {
+              "name": "Department",
+              "type": "Department"
+            }
+          ],
+          "samples": [
+            "nach informationen von den {Department}",
+            "nach aktuellen informationen",
+            "was bei den sportfreunden geht",
+            "was bei den sportfreunden so geht",
+            "nach den aktuellen {Department} neuigkeiten",
+            "nach den aktuellen {Department} news",
+            "was bei {Department} so passiert",
+            "nach neuigkeiten aus dem {Department}",
+            "was gibt es neues bei den {Department}",
+            "was es beim {Department} neues gibt",
+            "nach news aus der abteilung {Department}",
+            "nach news",
+            "was bei den sportfreunden so passiert",
+            "nach neuigkeiten",
+            "was es neues gibt",
+            "was gibt es neues"
+          ]
+        },
+        {
+          "name": "AMAZON.NextIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.YesIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NoIntent",
+          "samples": []
+        },
+        {
+          "name": "GetFootballResults",
+          "slots": [
+            {
+              "name": "TEAM",
+              "type": "Team"
+            }
+          ],
+          "samples": [
+            "nach den letzten ergebnissen der {TEAM}",
+            "nach den letzten ergebnissen",
+            "wann die {TEAM} wieder spielt",
+            "wann spielt die {TEAM} wieder",
+            "wann ist das nächste spiel",
+            "wann das nächste spiel ist",
+            "wie die {TEAM} gespielt hat",
+            "wie hat die {TEAM} gespielt",
+            "wie die fußballer gespielt haben",
+            "wie haben die fußballer gespielt"
+          ]
+        },
+        {
+          "name": "GetContact",
+          "samples": [
+            "wie kann ich euch erreichen",
+            "wie ich den verein erreichen kann",
+            "nach der vereins adresse",
+            "nach der adresse",
+            "nach eurer adresse",
+            "frage nach infos",
+            "frage nach informationen",
+            "nach ansprachpartnern",
+            "nach möglichkeiten des kontakts",
+            "nach kontakt möglichkeiten",
+            "wie erreiche ich euch",
+            "wie ich kontakt mit euch aufnehmen kann",
+            "wie ich euch erreichen kann"
+          ]
+        },
+        {
+          "name": "ClubAnthem",
+          "samples": [
+            "spiele die sportfreunde hymne",
+            "spiele das sportfreunde lied",
+            "wie geht das lied der sportfreunde",
+            "wie geht die vereinshymne",
+            "wie geht blau und weiss",
+            "spiele das vereinslied",
+            "spiele blau und weiß",
+            "nach der vereinshymne",
+            "spiele die hymne",
+            "spiele die vereinshymne"
+          ]
+        },
+        {
+          "name": "AMAZON.RepeatIntent",
+          "samples": []
+        },
+        {
+          "name": "GetCourseList",
+          "samples": [
+            "was für kurse angeboten sind",
+            "welche gymnastik kurse angeboten werden",
+            "nach den gymnastik kursen",
+            "nach den kursen",
+            "was kann ich für gymnastik machen",
+            "welche gymnastik kurse gibt es",
+            "welche gymnastik kurse es gibt",
+            "welche kurse es gibt"
+          ]
+        },
+        {
+          "name": "CourseDetail",
+          "slots": [
+            {
+              "name": "COURSE",
+              "type": "Courses"
+            }
+          ],
+          "samples": [
+            "{COURSE}",
+            "mehr über {COURSE}",
+            "infos zu {COURSE}",
+            "kurs {COURSE}"
+          ]
+        },
+        {
+          "name": "GetGameReports",
+          "samples": [
+            "nach den letzten spielberichten",
+            "nach fussball texten",
+            "nach artikeln vom fussball",
+            "nach berichten vom fussball",
+            "nach spielberichten"
           ]
         }
       ],
@@ -85,6 +223,205 @@
             }
           ],
           "name": "Event"
+        },
+        {
+          "values": [
+            {
+              "id": "gesamtverein",
+              "name": {
+                "value": "gesamtverein",
+                "synonyms": [
+                  "verein",
+                  "im verein"
+                ]
+              }
+            },
+            {
+              "id": "gymnastik",
+              "name": {
+                "value": "gymnastik",
+                "synonyms": [
+                  "turnern",
+                  "turnerinnen",
+                  "turner"
+                ]
+              }
+            },
+            {
+              "id": "fussball",
+              "name": {
+                "value": "fussball",
+                "synonyms": [
+                  "fussballer"
+                ]
+              }
+            }
+          ],
+          "name": "Department"
+        },
+        {
+          "values": [
+            {
+              "id": "zweite",
+              "name": {
+                "value": "zweite mannschaft",
+                "synonyms": [
+                  "reserve mannschaft",
+                  "zweite",
+                  "reserve"
+                ]
+              }
+            },
+            {
+              "id": "erste",
+              "name": {
+                "value": "erste mannschaft",
+                "synonyms": [
+                  "kreisliga mannschaft",
+                  "erste"
+                ]
+              }
+            }
+          ],
+          "name": "Team"
+        },
+        {
+          "values": [
+            {
+              "id": "Ashtanga-Yoga",
+              "name": {
+                "value": "Ashtanga Yoga",
+                "synonyms": [
+                  "tange yoga",
+                  "aschtanga yoga"
+                ]
+              }
+            },
+            {
+              "id": "Vinyasa-Yoga",
+              "name": {
+                "value": "Vinyasa Yoga",
+                "synonyms": [
+                  "yasa yoga",
+                  "vinyasa yoga"
+                ]
+              }
+            },
+            {
+              "id": "Qigong",
+              "name": {
+                "value": "Qigong",
+                "synonyms": [
+                  "schi gong",
+                  "schigong",
+                  "tschi gong"
+                ]
+              }
+            },
+            {
+              "id": "Step-Aerobic",
+              "name": {
+                "value": "Step Aerobic",
+                "synonyms": [
+                  "step aerobic",
+                  "step ärobik"
+                ]
+              }
+            },
+            {
+              "id": "Zumba",
+              "name": {
+                "value": "Zumba",
+                "synonyms": [
+                  "simba",
+                  "sumba"
+                ]
+              }
+            },
+            {
+              "id": "Feldenkrais",
+              "name": {
+                "value": "Feldenkrais",
+                "synonyms": [
+                  "felden feldenkrais",
+                  "feld kreis",
+                  "feld kreis",
+                  "felden grais",
+                  "felden greis",
+                  "felden krais",
+                  "felden kreis"
+                ]
+              }
+            },
+            {
+              "id": "Pilates",
+              "name": {
+                "value": "Pilates"
+              }
+            },
+            {
+              "id": "Fit-Mix",
+              "name": {
+                "value": "Fit Mix",
+                "synonyms": [
+                  "fitt mix",
+                  "fit mix"
+                ]
+              }
+            },
+            {
+              "id": "Männerfitness",
+              "name": {
+                "value": "Männerfitness",
+                "synonyms": [
+                  "manhardt gymnastik",
+                  "männer gymnastik",
+                  "menno gymnastik",
+                  "sport für männer",
+                  "männer sport",
+                  "männer fitness"
+                ]
+              }
+            },
+            {
+              "id": "Frauengymnastik",
+              "name": {
+                "value": "Frauengymnastik",
+                "synonyms": [
+                  "frauen gymnastik"
+                ]
+              }
+            },
+            {
+              "id": "Bodystyle",
+              "name": {
+                "value": "Bodystyle",
+                "synonyms": [
+                  "bodi style",
+                  "bodi steil",
+                  "body steil",
+                  "body style"
+                ]
+              }
+            },
+            {
+              "id": "Spiel-Turnen",
+              "name": {
+                "value": "Spiel Turnen"
+              }
+            },
+            {
+              "id": "Eltern-Kind-Turnen",
+              "name": {
+                "value": "Eltern Kind Turnen",
+                "synonyms": [
+                  "kind turnen",
+                  "kinderturnen"
+                ]
+              }
+            }
+          ],
+          "name": "Courses"
         }
       ]
     }

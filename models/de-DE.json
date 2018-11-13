@@ -20,6 +20,169 @@
 					"value": "weihnachtsfeier"
 				}
 			]
+		},
+		{
+			"name": "Department",
+			"values": [
+				{
+					"value": "gesamtverein",
+					"synonyms": [
+						"verein",
+						"im verein"
+					],
+					"id": "gesamtverein"
+				},
+				{
+					"value": "gymnastik",
+					"synonyms": [
+						"turnern",
+						"turnerinnen",
+						"turner"
+					],
+					"id": "gymnastik"
+				},
+				{
+					"value": "fussball",
+					"synonyms": [
+						"fussballer"
+					],
+					"id": "fussball"
+				}
+			]
+		},
+		{
+			"name": "Team",
+			"values": [
+				{
+					"value": "zweite mannschaft",
+					"synonyms": [
+						"reserve mannschaft",
+						"zweite",
+						"reserve"
+					],
+					"id": "zweite"
+				},
+				{
+					"value": "erste mannschaft",
+					"synonyms": [
+						"kreisliga mannschaft",
+						"erste"
+					],
+					"id": "erste"
+				}
+			]
+		},
+		{
+			"name": "Courses",
+			"values": [
+				{
+					"value": "Ashtanga Yoga",
+					"synonyms": [
+						"tange yoga",
+						"aschtanga yoga"
+					],
+					"id": "Ashtanga-Yoga"
+				},
+				{
+					"value": "Vinyasa Yoga",
+					"synonyms": [
+						"yasa yoga",
+						"vinyasa yoga"
+					],
+					"id": "Vinyasa-Yoga"
+				},
+				{
+					"value": "Qigong",
+					"synonyms": [
+						"schi gong",
+						"schigong",
+						"tschi gong"
+					],
+					"id": "Qigong"
+				},
+				{
+					"value": "Step Aerobic",
+					"synonyms": [
+						"step aerobic",
+						"step ärobik"
+					],
+					"id": "Step-Aerobic"
+				},
+				{
+					"value": "Zumba",
+					"synonyms": [
+						"simba",
+						"sumba"
+					],
+					"id": "Zumba"
+				},
+				{
+					"value": "Feldenkrais",
+					"synonyms": [
+						"felden feldenkrais",
+						"feld kreis",
+						"feld kreis",
+						"felden grais",
+						"felden greis",
+						"felden krais",
+						"felden kreis"
+					],
+					"id": "Feldenkrais"
+				},
+				{
+					"value": "Pilates",
+					"id": "Pilates"
+				},
+				{
+					"value": "Fit Mix",
+					"synonyms": [
+						"fitt mix",
+						"fit mix"
+					],
+					"id": "Fit-Mix"
+				},
+				{
+					"value": "Männerfitness",
+					"synonyms": [
+						"manhardt gymnastik",
+						"männer gymnastik",
+						"menno gymnastik",
+						"sport für männer",
+						"männer sport",
+						"männer fitness"
+					],
+					"id": "Männerfitness"
+				},
+				{
+					"value": "Frauengymnastik",
+					"synonyms": [
+						"frauen gymnastik"
+					],
+					"id": "Frauengymnastik"
+				},
+				{
+					"value": "Bodystyle",
+					"synonyms": [
+						"bodi style",
+						"bodi steil",
+						"body steil",
+						"body style"
+					],
+					"id": "Bodystyle"
+				},
+				{
+					"value": "Spiel Turnen",
+					"id": "Spiel-Turnen"
+				},
+				{
+					"value": "Eltern Kind Turnen",
+					"synonyms": [
+						"kind turnen",
+						"kinderturnen"
+					],
+					"id": "Eltern-Kind-Turnen"
+				}
+			]
 		}
 	],
 	"alexa": {
@@ -49,6 +212,22 @@
 					{
 						"name": "AMAZON.ResumeIntent",
 						"samples": []
+					},
+					{
+						"name": "AMAZON.NextIntent",
+						"samples": []
+					},
+					{
+						"name": "AMAZON.YesIntent",
+						"samples": []
+					},
+					{
+						"name": "AMAZON.NoIntent",
+						"samples": []
+					},
+					{
+						"name": "AMAZON.RepeatIntent",
+						"samples": []
 					}
 				]
 			}
@@ -58,6 +237,9 @@
 		{
 			"name": "NextEvents",
 			"phrases": [
+				"nach veranstaltungen",
+				"nach terminen",
+				"nach den nächsten terminen",
 				"nach den terminen in diesem jahr",
 				"nach den terminen dieses jahr",
 				"wann mal wieder party ist",
@@ -80,6 +262,125 @@
 					"name": "EVENT",
 					"type": "Event"
 				}
+			]
+		},
+		{
+			"name": "GetNews",
+			"phrases": [
+				"nach informationen von den {Department}",
+				"nach aktuellen informationen",
+				"was bei den sportfreunden geht",
+				"was bei den sportfreunden so geht",
+				"nach den aktuellen {Department} neuigkeiten",
+				"nach den aktuellen {Department} news",
+				"was bei {Department} so passiert",
+				"nach neuigkeiten aus dem {Department}",
+				"was gibt es neues bei den {Department}",
+				"was es beim {Department} neues gibt",
+				"nach news aus der abteilung {Department}",
+				"nach news",
+				"was bei den sportfreunden so passiert",
+				"nach neuigkeiten",
+				"was es neues gibt",
+				"was gibt es neues"
+			],
+			"inputs": [
+				{
+					"name": "Department",
+					"type": "Department"
+				}
+			]
+		},
+		{
+			"name": "GetFootballResults",
+			"phrases": [
+				"nach den letzten ergebnissen der {TEAM}",
+				"nach den letzten ergebnissen",
+				"wann die {TEAM} wieder spielt",
+				"wann spielt die {TEAM} wieder",
+				"wann ist das nächste spiel",
+				"wann das nächste spiel ist",
+				"wie die {TEAM} gespielt hat",
+				"wie hat die {TEAM} gespielt",
+				"wie die fußballer gespielt haben",
+				"wie haben die fußballer gespielt"
+			],
+			"inputs": [
+				{
+					"name": "TEAM",
+					"type": "Team"
+				}
+			]
+		},
+		{
+			"name": "GetContact",
+			"phrases": [
+				"wie kann ich euch erreichen",
+				"wie ich den verein erreichen kann",
+				"nach der vereins adresse",
+				"nach der adresse",
+				"nach eurer adresse",
+				"frage nach infos",
+				"frage nach informationen",
+				"nach ansprachpartnern",
+				"nach möglichkeiten des kontakts",
+				"nach kontakt möglichkeiten",
+				"wie erreiche ich euch",
+				"wie ich kontakt mit euch aufnehmen kann",
+				"wie ich euch erreichen kann"
+			]
+		},
+		{
+			"name": "ClubAnthem",
+			"phrases": [
+				"spiele die sportfreunde hymne",
+				"spiele das sportfreunde lied",
+				"wie geht das lied der sportfreunde",
+				"wie geht die vereinshymne",
+				"wie geht blau und weiss",
+				"spiele das vereinslied",
+				"spiele blau und weiß",
+				"nach der vereinshymne",
+				"spiele die hymne",
+				"spiele die vereinshymne"
+			]
+		},
+		{
+			"name": "GetCourseList",
+			"phrases": [
+				"was für kurse angeboten sind",
+				"welche gymnastik kurse angeboten werden",
+				"nach den gymnastik kursen",
+				"nach den kursen",
+				"was kann ich für gymnastik machen",
+				"welche gymnastik kurse gibt es",
+				"welche gymnastik kurse es gibt",
+				"welche kurse es gibt"
+			]
+		},
+		{
+			"name": "CourseDetail",
+			"phrases": [
+				"{COURSE}",
+				"mehr über {COURSE}",
+				"infos zu {COURSE}",
+				"kurs {COURSE}"
+			],
+			"inputs": [
+				{
+					"name": "COURSE",
+					"type": "Courses"
+				}
+			]
+		},
+		{
+			"name": "GetGameReports",
+			"phrases": [
+				"nach den letzten spielberichten",
+				"nach fussball texten",
+				"nach artikeln vom fussball",
+				"nach berichten vom fussball",
+				"nach spielberichten"
 			]
 		}
 	]

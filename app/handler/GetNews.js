@@ -83,6 +83,10 @@ module.exports = {
 
   'ReadCurrentNewsQuestion': {
 
+    'AMAZON.HelpIntent': function () {
+      this.ask('Du kannst nun Ja oder Nein sagen, ob ich Dir die Meldung vorlesen soll.', 'Sage ja oder nein');
+    },
+
     /**
      * Read the current news
      *
@@ -135,6 +139,10 @@ module.exports = {
   },
 
   'ReadNextNews': {
+
+    'AMAZON.HelpIntent': function () {
+      this.ask('Sage ja, wenn ich Dir die weiteren Meldungen durchgeben soll. Nein, wenn Du das nicht möchtest.', 'Sage nun Ja oder Nein.');
+    },
 
     /**
      * Yes = read news

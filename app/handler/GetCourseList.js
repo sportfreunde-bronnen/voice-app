@@ -19,6 +19,11 @@ let self = module.exports = {
 
         let courseList = [];
 
+        speech
+          .addText('Unsere Angebote untergliedern sich in Dauer- und Kursangebote. Die Dauerangebote kannst Du als Mitglied der Sportfreunde Bronnen ohne Zusatzkosten besuchen.')
+          .addText('Für die Kursangebote fällt eine zusätzliche Gebühr je nach Kurs an.')
+          .addBreak('500ms');
+
         courses.forEach((course) => {
           if (courseList[course.type] === undefined) {
             courseList[course.type] = [];
@@ -55,6 +60,19 @@ let self = module.exports = {
   },
 
   'CourseDetailState': {
+
+    'AMAZON.CancelIntent': function () {
+      this.removeState();
+      this.toIntent('AMAZON.CancelIntent');
+    },
+
+    'Unhandled': function () {
+      this.ask('Diesen Kurs konnte ich nicht verstehen. Versuche es nochmal! Sage zum Beispiel Zumba, wenn Du Dich für Zumba interessierst.', 'Nenne mir nun den Namen des Kurses, für den Du Dich interessierst.');
+    },
+
+    'AMAZON.HelpIntent': function () {
+      this.ask('Nenne mir nun den Namen des Kurses, für den Du Dich interessierst. Sage zum Beispiel Zumba, wenn Du Dich für Zumba interessierst.', 'Nenne mir nun den Namen des Kurses, für den Du Dich interessierst.');
+    },
 
     'AMAZON.NoIntent': function () {
       this.removeState();

@@ -11,10 +11,14 @@ module.exports = {
     let team = this.getInput('TEAM');
     let teamIdentifier = '';
 
-    if (team.id === undefined) {
+    if (team === undefined) {
       teamIdentifier = 'erste';
     } else {
-      teamIdentifier = team.id;
+      if (team.id === undefined) {
+        teamIdentifier = 'erste';
+      } else {
+        teamIdentifier = team.id;
+      }
     }
 
     SfbApiResults.getResults(teamIdentifier)

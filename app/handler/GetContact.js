@@ -7,6 +7,7 @@ module.exports = {
    * @constructor
    */
   'GetContact': function () {
+
     let speech = this.speechBuilder();
 
     speech
@@ -29,5 +30,6 @@ module.exports = {
       .addSayAsCharacters('9899');
 
     this.tell(speech);
+
   }
 };

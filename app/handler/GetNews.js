@@ -53,6 +53,7 @@ module.exports = {
    * @constructor
    */
   'VReadNews': function (speech) {
+
     let currentNewsData = this.getSessionAttribute('currentNewsData');
     let currentNewsIndex = this.getSessionAttribute('currentNewsIndex');
 
@@ -73,10 +74,10 @@ module.exports = {
       .addBreak('250ms')
       .addText(currentNews['title'])
       .addBreak('250ms')
-      .addText('Wenn ich Dir das vorlesen soll, sage vorlesen. Wenn nicht, sage weiter.');
+      .addText('Soll ich Dir das vorlesen?');
 
     this.followUpState('ReadCurrentNewsQuestion');
-    this.ask(speech, 'Wenn ich Dir die Meldung vorlesen soll, sage weiter. Um zur nächsten Meldung zu kommen sage weiter.');
+    this.ask(speech, 'Sage ja, wenn ich Dir das vorlesen soll. Sage Nein, wenn nicht.');
 
   },
 
@@ -87,7 +88,8 @@ module.exports = {
      *
      * @constructor
      */
-    'ReadMore': function () {
+    'AMAZON.YesIntent': function () {
+
       let currentNewsData = this.getSessionAttribute('currentNewsData');
       let currentNewsIndex = this.getSessionAttribute('currentNewsIndex');
 
@@ -98,15 +100,41 @@ module.exports = {
       speech
         .addText(currentNews['title'])
         .addBreak('250ms')
-        .addText(currentNews['text']);
+        .addText(currentNews['text'].replace(/&quot;/g, ''));
 
       speech
         .addBreak('500ms')
         .addText('Soll ich Dir nun die weiteren Meldungen durchgeben?');
 
+      this.followUpState('ReadNextNews');
       this.ask(speech, 'Sage ja, wenn ich Dir die weiteren Meldungen durchgeben soll. Nein, wenn Du das nicht möchtest.');
 
     },
+
+    /**
+     * No = next news
+     *
+     * @constructor
+     */
+    'AMAZON.NoIntent': function () {
+      this.toIntent('AMAZON.NextIntent');
+    },
+
+    /**
+     * Read the next news title
+     *
+     * @constructor
+     */
+    'AMAZON.NextIntent': function () {
+      let currentNewsIndex = this.getSessionAttribute('currentNewsIndex');
+      this.setSessionAttribute('currentNewsIndex', ++currentNewsIndex);
+      this.removeState();
+      this.toIntent('VReadNews');
+    }
+
+  },
+
+  'ReadNextNews': {
 
     /**
      * Yes = read news
@@ -126,19 +154,8 @@ module.exports = {
      * @constructor
      */
     'AMAZON.NoIntent': function () {
-      this.tell('Alles klar. Dann bis bald!');
-    },
-
-    /**
-     * Read the next news title
-     *
-     * @constructor
-     */
-    'AMAZON.NextIntent': function () {
-      let currentNewsIndex = this.getSessionAttribute('currentNewsIndex');
-      this.setSessionAttribute('currentNewsIndex', ++currentNewsIndex);
       this.removeState();
-      this.toIntent('VReadNews');
+      this.toIntent('AMAZON.CancelIntent');
     }
   }
 

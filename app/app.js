@@ -33,7 +33,7 @@ app.setHandler(
      * @constructor
      */
     'NEW_USER': function() {
-      this.tell('JA GRIASDE DU BAURASEGGL!');
+      this.tell('Servus und herzlich Willkommen bei den Sportfreunden Bronnen!');
     },
 
     /**
@@ -55,12 +55,39 @@ app.setHandler(
     },
 
     /**
+     * Stop
+     *
+     * @constructor
+     */
+    'AMAZON.StopIntent': function() {
+      this.toIntent('AMAZON.CancelIntent');
+    },
+
+    /**
+     * Cancel "Abbrechen"
+     *
+     * @constructor
+     */
+    'AMAZON.CancelIntent': function() {
+      this.tell('Alles klar, machs gut! Und immer schön sportlich bleiben.');
+    },
+
+    /**
      * Global repeat intent
      *
      * @constructor
      */
     'RepeatIntent': function() {
       this.repeat();
+    },
+
+    /**
+     * Directly redirect this intent to the football news
+     *
+     * @constructor
+     */
+    'GetGameReports': function() {
+      this.toIntent('GetNews', {id: 'fussball'});
     }
   },
 
@@ -68,7 +95,8 @@ app.setHandler(
   require('./handler/GetNews'),
   require('./handler/GetFootballResults'),
   require('./handler/GetContact'),
-  require('./handler/ClubAnthem')
+  require('./handler/ClubAnthem'),
+  require('./handler/GetCourseList')
 
 );
 

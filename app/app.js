@@ -158,6 +158,7 @@ app.setHandler(
   require('./handler/NextEvents'),
   require('./handler/GetNews'),
   require('./handler/GetFootballResults'),
+  require('./handler/GetNextFootballGame'),
   require('./handler/GetContact'),
   require('./handler/ClubAnthem'),
   require('./handler/GetCourseList')

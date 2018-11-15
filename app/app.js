@@ -45,7 +45,8 @@ app.setHandler(
         .addBreak('250ms')
         .addText('Also. Was kann ich für Dich tun?');
 
-      this.followUpState('EntryFeedback');
+      this.setSessionAttribute('inAppHelpRequest', true);
+
       this.ask(speech, 'Sage nun Ergebnisse, Berichte, Veranstaltungen, Gymnastikkurse oder Vereinshymne.');
 
     },
@@ -55,7 +56,7 @@ app.setHandler(
      *
      * @constructor
      */
-    'NEW_USER': function() {
+    'NEW_USER': function () {
       let speech = this.speechBuilder();
       speech
         .addText('Hallo und herzlich Willkommen bei den Sportfreunden Bronnen!')
@@ -65,30 +66,48 @@ app.setHandler(
       this.toIntent('LAUNCH', speech);
     },
 
-    'EntryFeedback': {
-      'Unhandled': function () {
-        this.ask('Das konnte ich nicht verstehen. Sage nun Ergebnisse, Berichte, Veranstaltungen, Gymnastikkurse oder Vereinshymne.');
-      },
-      'EntryResults': function () {
-        this.removeState();
-        this.toIntent('GetFootballResults');
-      },
-      'EntryNews': function () {
-        this.removeState();
-        this.toIntent('GetNews', {id: 'gesamtverein'});
-      },
-      'EntryEvents': function () {
-        this.removeState();
-        this.toIntent('NextEvents');
-      },
-      'CourseDetail': function () {
-        this.removeState();
-        this.toIntent('GetCourseList');
-      },
-      'GetCourseList': function () {
-        this.removeState();
-        this.toIntent('GetCourseList');
+    /**
+     * Help intent
+     *
+     * @constructor
+     */
+    'AMAZON.HelpIntent': function () {
+      let speech = this.speechBuilder();
+      // Check if the help was requested from inside the skill
+      if (this.getSessionAttribute('inAppHelpRequest') === true) {
+        speech
+          .addText('Du kannst nun auswählen, welche Funktion des Skills Du nutzen möchtest.')
+          .addText('Sage Ergebnisse für die letzten Ergebnisse.')
+          .addText('Sage Neuigkeiten für die letzten Vereinsmeldungen.')
+          .addText('Sage Veranstaltungen, um die kommenden Termine zu erfahren.')
+          .addText('Sage Gymnastikkurse, um Dich über unser Kursangebot zu informieren.')
+          .addText('Sage Vereinshymne, um unser Vereinslied zu hören.')
+          .addBreak('250ms')
+          .addText('Also, wie kann ich Dir helfen?');
+        this.ask(speech, 'Sage nun Ergebnisse, Berichte, Veranstaltungen, Gymnastikkurse oder Vereinshymne.')
+      } else {
+        speech
+          .addText('Um unseren Skill zu nutzen sage einfach: Alexa, starte Sportfreunde Bronnen.')
+          .addText('Im Anschluss hilft Dir der Skill, Dich zurecht zu finden.')
+          .addBreak('250ms')
+          .addText('Du kannst die einzelnen Funktionen allerdings auch direkt aufrufen.')
+          .addText('Wenn Du Dich für die Ergebnisse der Fußballer interessierst sage zum Beispiel: "Alexa, frage Sportfreunde Bronnen wie die Fussballer gespielt haben".')
+          .addText('Für Neuigkeiten aus dem Gesamtverein sage: "Alexa, frage Sportfreunde Bronnen was es Neues gibt.')
+          .addText('Für abteilungsspezifische Neuigkeiten sage zum Beispiel: "Alexa, frage Sportfreunde Bronnen was es beim Fussball Neues gibt.')
+          .addText('Du kannst mich auch nach den kommenden Veranstaltungen befragen. Sage hierfür einfach: "Alexa, frage Sportfreunde Bronnen nach den kommenden Veranstaltungen".')
+          .addText('Falls Du Dich für unsere Gymnastikabteilung interessierst, kannst Du sagen: "Alexa, frage Sportfreunde Bronnen welche Gymnastikkurse es gibt".')
+          .addText('Solltest Du musikalisch angehaucht sein, kannst Du Dir auch unsere Vereinshymne anhören. Sage hierzu einfach: "Alexa, starte Sportfreunde Bronnen und spiele die Vereinshymne".')
+          .addText('Wenn Du wissen willst wann die Fussballer wieder spielen sage einfach: "Alexa, frage Sportfreunde Bronnen nach den nächsten Spielen".')
+          .addText('Du möchtest Kontakt mit uns aufnehmen? Dann hilft Dir der Skill so: "Alexa, frage Sportfreunde Bronnen, wie ich euch erreichen kann".')
+          .addText('Um den Skill zu beenden kannst Du jederzeit sagen: "Alexa, abbrechen."')
+          .addBreak('500ms')
+          .addText('Also, wie kann ich Dir helfen?');
+        this.ask(speech, 'Sage mir nun, wie ich Dir weiterhelfen kann.');
       }
+    },
+
+    'CourseDetail': function () {
+      this.toIntent('GetCourseList');
     },
 
     /**
@@ -96,7 +115,7 @@ app.setHandler(
      *
      * @constructor
      */
-    'Unhandled': function() {
+    'Unhandled': function () {
       this.tell('Das habe ich leider nicht verstanden.');
     },
 
@@ -105,7 +124,7 @@ app.setHandler(
      *
      * @constructor
      */
-    'AMAZON.RepeatIntent': function() {
+    'AMAZON.RepeatIntent': function () {
       this.toIntent('RepeatIntent');
     },
 
@@ -114,7 +133,7 @@ app.setHandler(
      *
      * @constructor
      */
-    'AMAZON.StopIntent': function() {
+    'AMAZON.StopIntent': function () {
       this.toIntent('AMAZON.CancelIntent');
     },
 
@@ -123,7 +142,7 @@ app.setHandler(
      *
      * @constructor
      */
-    'AMAZON.CancelIntent': function() {
+    'AMAZON.CancelIntent': function () {
       this.tell('Alles klar, machs gut! Und immer schön sportlich bleiben.');
     },
 
@@ -132,7 +151,7 @@ app.setHandler(
      *
      * @constructor
      */
-    'RepeatIntent': function() {
+    'RepeatIntent': function () {
       this.repeat();
     },
 
@@ -141,7 +160,7 @@ app.setHandler(
      *
      * @constructor
      */
-    'GetGameReports': function() {
+    'GetGameReports': function () {
       this.toIntent('GetNews', {id: 'fussball'});
     },
 
@@ -150,7 +169,7 @@ app.setHandler(
      *
      * @constructor
      */
-    'SpecificEvent': function() {
+    'SpecificEvent': function () {
       this.toIntent('NextEvents');
     }
   },

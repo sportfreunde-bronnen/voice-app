@@ -27,6 +27,8 @@
 				{
 					"value": "gesamtverein",
 					"synonyms": [
+						"im hauptverein",
+						"hauptverein",
 						"verein",
 						"im verein"
 					],
@@ -35,6 +37,8 @@
 				{
 					"value": "gymnastik",
 					"synonyms": [
+						"den turnerinnen",
+						"den turnern",
 						"turnern",
 						"turnerinnen",
 						"turner"
@@ -44,6 +48,8 @@
 				{
 					"value": "fussball",
 					"synonyms": [
+						"den fußballern",
+						"den fussballern",
 						"fussballer"
 					],
 					"id": "fussball"
@@ -206,14 +212,6 @@
 						"samples": []
 					},
 					{
-						"name": "AMAZON.PauseIntent",
-						"samples": []
-					},
-					{
-						"name": "AMAZON.ResumeIntent",
-						"samples": []
-					},
-					{
 						"name": "AMAZON.NextIntent",
 						"samples": []
 					},
@@ -237,6 +235,7 @@
 		{
 			"name": "NextEvents",
 			"phrases": [
+				"veranstaltungen",
 				"nach veranstaltungen",
 				"nach terminen",
 				"nach den nächsten terminen",
@@ -251,6 +250,8 @@
 		{
 			"name": "SpecificEvent",
 			"phrases": [
+				"wann der {EVENT} ist",
+				"wann der {EVENT} statt findet",
 				"wann findet {EVENT} statt",
 				"wann das {EVENT} ist",
 				"wann ist wieder {EVENT}",
@@ -267,6 +268,7 @@
 		{
 			"name": "GetNews",
 			"phrases": [
+				"neuigkeiten",
 				"nach informationen von den {Department}",
 				"nach aktuellen informationen",
 				"was bei den sportfreunden geht",
@@ -294,12 +296,12 @@
 		{
 			"name": "GetFootballResults",
 			"phrases": [
+				"ergebnisse",
+				"nach fussball ergebnissen",
+				"wie läuft es bei der {TEAM}",
+				"wie es bei der {TEAM} läuft",
 				"nach den letzten ergebnissen der {TEAM}",
 				"nach den letzten ergebnissen",
-				"wann die {TEAM} wieder spielt",
-				"wann spielt die {TEAM} wieder",
-				"wann ist das nächste spiel",
-				"wann das nächste spiel ist",
 				"wie die {TEAM} gespielt hat",
 				"wie hat die {TEAM} gespielt",
 				"wie die fußballer gespielt haben",
@@ -333,6 +335,7 @@
 		{
 			"name": "ClubAnthem",
 			"phrases": [
+				"vereinshymne",
 				"spiele die sportfreunde hymne",
 				"spiele das sportfreunde lied",
 				"wie geht das lied der sportfreunde",
@@ -348,6 +351,9 @@
 		{
 			"name": "GetCourseList",
 			"phrases": [
+				"gymnastik kurse",
+				"gymnastikkurse",
+				"welche gymnastikkurse es gibt",
 				"was für kurse angeboten sind",
 				"welche gymnastik kurse angeboten werden",
 				"nach den gymnastik kursen",
@@ -381,6 +387,29 @@
 				"nach artikeln vom fussball",
 				"nach berichten vom fussball",
 				"nach spielberichten"
+			]
+		},
+		{
+			"name": "GetNextFootballGame",
+			"phrases": [
+				"nach dem nächsten spiel der {TEAM}",
+				"wann hat die {TEAM} ihr nächstes spiel",
+				"gegen wen hat die {TEAM} ihr nächstes spiel",
+				"gegen wen spielt die {TEAM} als nächstes",
+				"gegen wen spielt die {TEAM}",
+				"gegen wen spielen wir als nächstes",
+				"wann sind die nächsten spiele",
+				"wann die {TEAM} wieder spielt",
+				"wann ist das nächste spiel der {TEAM}",
+				"wann spielt die {TEAM} wieder",
+				"wann ist das nächste spiel",
+				"nach den nächsten spielen"
+			],
+			"inputs": [
+				{
+					"name": "TEAM",
+					"type": "Team"
+				}
 			]
 		}
 	]

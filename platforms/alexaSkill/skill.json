@@ -5,16 +5,29 @@
         "de-DE": {
           "summary": "Informationen rund um die Sportfreunde Bronnen",
           "examplePhrases": [
-            "Alexa, starte Sportfreunde Bronnen"
+            "Alexa, frage Sportfreunde Bronnen wie die Erste gespielt hat.",
+            "Alexa, frage Sportfreunde Bronnen was es Neues gibt.",
+            "Alexa, frage Sportfreunde Bronnen welche Gymnastikkurse es gibt."
           ],
-          "keywords": [],
-          "name": "Sportfreunde Bronnen",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cd8c/6e02176c447440e18a5b55cd88f3b12f/APP_ICON?versionId=V508qjjwtEzLzGJfsDClp9DzhP5GeRpy&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1542191535&Signature=LTqMsU8bVUtM2mI65n3Fk4dSaO0%3D",
-          "description": "Informationen zu den Sportfreunden Bronnen",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/2bb8/9c0890c7b7c64de0ab251f20947d611b/APP_ICON_LARGE?versionId=.f5Cvh4abjvjZqL83h_rj9wc.L.qRiUM&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1542191535&Signature=uZAxZ2VjqIf4HLJ7yiRm6SfUQCg%3D"
+          "keywords": [
+            "sportfreunde",
+            "bronnen",
+            "sfb",
+            "verein",
+            "oberschwaben",
+            "news",
+            "ergebnisse",
+            "vereinshymne",
+            "kreisliga"
+          ],
+          "name": "Sportfreunde Bronnen 1949 e.V.",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cd8c/6e02176c447440e18a5b55cd88f3b12f/APP_ICON?versionId=V508qjjwtEzLzGJfsDClp9DzhP5GeRpy&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1542363643&Signature=pfHS13jdKE7aUaoBECMBZXokeqI%3D",
+          "description": "Mit Hilfe unseres Skills können Sie sich über unseren Verein, die Sportfreunde Bronnen, informieren. Folgende Funktionen stellt der Skill zur Verfügung:\n\n- Die auf unserer Webseite veröffentlichten Beiträge können von Alexa vorgelesen werden\n- Zugriff auf die vergangenen Ergebnisse unserer Fußballmannschaften\n- Abfrage der kommenden Vereinstermine\n- Abfrage der angebotenen Kurse in unserer Abteilung Gymnastik/Turnen\n- Abspielen der Vereinshymne (\"Blau und Weiß\")\n\n---\n\nDie Sportfreunde Bronnen sind ein über 600 Mitglieder fassender Verein bei Laupheim in Oberschwaben. Mit unseren Abteilungen Fitness/Gymnastik, Fußball und Aikido vermitteln wir Spaß und Freude am Sport und an der Bewegung.",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/2bb8/9c0890c7b7c64de0ab251f20947d611b/APP_ICON_LARGE?versionId=.f5Cvh4abjvjZqL83h_rj9wc.L.qRiUM&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1542363643&Signature=mGeeqQtdq78EbmFBeERbWx7YSEE%3D"
         }
       },
       "isAvailableWorldwide": true,
+      "testingInstructions": "Keine besonderen Testanweisungen.",
       "category": "FRIENDS_AND_FAMILY",
       "distributionCountries": []
     },
@@ -24,11 +37,7 @@
           "sslCertificateType": "Wildcard",
           "uri": "https://webhook.jovo.cloud/df4af05c-c0f3-42ee-b13e-d16c8e895441"
         },
-        "interfaces": [
-          {
-            "type": "AUDIO_PLAYER"
-          }
-        ]
+        "interfaces": []
       }
     },
     "manifestVersion": "1.0",

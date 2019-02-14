@@ -67,19 +67,22 @@ let self = module.exports = {
                 speech.addText('Unser Torschütze war ' + latest.scorer[0].scorer_name);
               } else {
                 speech.addText('Unsere Torschützen waren');
+                let isLastScorer = false;
                 latest.scorer.forEach((scorer, index) => {
+                  isLastScorer = (index === latest.scorer.length - 1);
+                  console.log(isLastScorer, scorer);
                   speech
-                    .addText(scorer.scorer_name)
-                    .addText('und', (index < latest.scorer.length - 1));
+                    .addText(scorer.scorer_name + ',', !isLastScorer)
+                    .addText('und ' + scorer.scorer_name + '.', isLastScorer);
                 });
               }
             }
-            speech.addText('.');
             speech.addBreak('250ms');
             resolve(speech);
           }
         })
         .catch((error) => {
+          console.error(error);
           this.reject(error);
         });
     });

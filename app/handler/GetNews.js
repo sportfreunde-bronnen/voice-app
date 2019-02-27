@@ -70,9 +70,10 @@ module.exports = {
     const currentNews = currentNewsData[currentNewsIndex];
 
     speech
-      .addText(currentNews['date'])
+      .addText('Artikel vom ')
+      .addText(currentNews['date'] + ':')
       .addBreak('250ms')
-      .addText(currentNews['title'])
+      .addText(currentNews['title'] + '.')
       .addBreak('250ms')
       .addText('Soll ich Dir das vorlesen?');
 

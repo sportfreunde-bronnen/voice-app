@@ -48,35 +48,53 @@ let self = module.exports = {
         .then((results) => {
           if (results['latest'] !== undefined) {
             let latest = results['latest'];
-            speech
-              .addText('Das letzte Spiel')
-              .addText('der ' + teamIdentifier + 'n Mannschaft am')
-              .addText(latest['date'])
-              .addText('um ' + latest['time'])
-              .addText('in Bronnen', latest.home_game)
-              .addText('gegen ' + latest.opponent, latest.home_game)
-              .addText('beim ' + latest.opponent, !latest.home_game)
-              .addText('wurde mit ' + latest.goals_sfb + ':' + latest.goals_opponent, !(latest.goals_sfb === latest.goals_opponent))
-              .addText('endete ' + latest.goals_sfb + ':' + latest.goals_opponent + ' unentschieden!', (latest.goals_sfb === latest.goals_opponent))
-              .addText('gewonnen!', (latest.goals_sfb > latest.goals_opponent))
-              .addText('verloren!', (latest.goals_sfb < latest.goals_opponent));
 
-            // Add the scorers
-            if (latest.scorer !== undefined && latest.scorer.length > 0) {
-              if (latest.scorer.length === 1) {
-                speech.addText('Unser Torschütze war ' + latest.scorer[0].scorer_name);
-              } else {
-                speech.addText('Unsere Torschützen waren');
-                let isLastScorer = false;
-                latest.scorer.forEach((scorer, index) => {
-                  isLastScorer = (index === latest.scorer.length - 1);
-                  console.log(isLastScorer, scorer);
-                  speech
-                    .addText(scorer.scorer_name + ',', !isLastScorer)
-                    .addText('und ' + scorer.scorer_name + '.', isLastScorer);
-                });
+            if (latest.goals_opponent === undefined && latest.goals_sfb === undefined) {
+
+              speech
+                .addText('Zum letzten Spiel')
+                .addText('der ' + teamIdentifier + 'n Mannschaft am')
+                .addText(latest['date'])
+                .addText('um ' + latest['time'])
+                .addText('in Bronnen', latest.home_game)
+                .addText('gegen ' + latest.opponent, latest.home_game)
+                .addText('beim ' + latest.opponent, !latest.home_game)
+                .addText('liegt mir leider noch kein Ergebnis vor. Versuche es später nochmal!');
+
+            } else {
+
+              speech
+                .addText('Das letzte Spiel')
+                .addText('der ' + teamIdentifier + 'n Mannschaft am')
+                .addText(latest['date'])
+                .addText('um ' + latest['time'])
+                .addText('in Bronnen', latest.home_game)
+                .addText('gegen ' + latest.opponent, latest.home_game)
+                .addText('beim ' + latest.opponent, !latest.home_game)
+                .addText('wurde mit ' + latest.goals_sfb + ':' + latest.goals_opponent, !(latest.goals_sfb === latest.goals_opponent))
+                .addText('endete ' + latest.goals_sfb + ':' + latest.goals_opponent + ' unentschieden!', (latest.goals_sfb === latest.goals_opponent))
+                .addText('gewonnen!', (latest.goals_sfb > latest.goals_opponent))
+                .addText('verloren!', (latest.goals_sfb < latest.goals_opponent));
+
+              // Add the scorers
+              if (latest.scorer !== undefined && latest.scorer.length > 0) {
+                if (latest.scorer.length === 1) {
+                  speech.addText('Unser Torschütze war ' + latest.scorer[0].scorer_name);
+                } else {
+                  speech.addText('Unsere Torschützen waren');
+                  let isLastScorer = false;
+                  latest.scorer.forEach((scorer, index) => {
+                    isLastScorer = (index === latest.scorer.length - 1);
+                    console.log(isLastScorer, scorer);
+                    speech
+                      .addText(scorer.scorer_name + ',', !isLastScorer)
+                      .addText('und ' + scorer.scorer_name + '.', isLastScorer);
+                  });
+                }
               }
+
             }
+
             speech.addBreak('250ms');
             resolve(speech);
           }

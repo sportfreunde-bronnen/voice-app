@@ -180,7 +180,8 @@ app.setHandler(
   require('./handler/GetNextFootballGame'),
   require('./handler/GetContact'),
   require('./handler/ClubAnthem'),
-  require('./handler/GetCourseList')
+  require('./handler/GetCourseList'),
+  require('./handler/AnnualMeeting')
 
 );
 

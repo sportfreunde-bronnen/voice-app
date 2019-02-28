@@ -78,17 +78,48 @@ let self = module.exports = {
 
               // Add the scorers
               if (latest.scorer !== undefined && latest.scorer.length > 0) {
+
+                let scorerCount = [];
+                let deleteScorers = [];
+
+                latest.scorer.forEach((scorer, index) => {
+                  if (!scorerCount[scorer.scorer_name]) {
+                    scorerCount[scorer.scorer_name] = 0;
+                  }
+                  scorerCount[scorer.scorer_name]++;
+                  if (scorerCount[scorer.scorer_name] > 1) {
+                    deleteScorers.push(index);
+                  }
+                });
+
+                deleteScorers
+                  .sort((a, b) => b - a)
+                  .map((val) => delete latest.scorer.splice(val, 1));
+
                 if (latest.scorer.length === 1) {
-                  speech.addText('Unser Torschütze war ' + latest.scorer[0].scorer_name);
+
+                  const singleScorer = latest.scorer[0];
+
+                  speech
+                    .addText('Unser Torschütze')
+                    .addText('war')
+                    .addText(scorerCount[singleScorer.scorer_name] + ' Mal', scorerCount[singleScorer.scorer_name] > 1)
+                    .addText(singleScorer.scorer_name);
+
                 } else {
+
                   speech.addText('Unsere Torschützen waren');
-                  let isLastScorer = false;
+
                   latest.scorer.forEach((scorer, index) => {
-                    isLastScorer = (index === latest.scorer.length - 1);
-                    console.log(isLastScorer, scorer);
+                    const moreThanOneGoal = (scorerCount[scorer.scorer_name] > 1);
+                    const isLastScorer = (index === latest.scorer.length - 1);
+                    console.log(scorer.scorer_name, moreThanOneGoal, isLastScorer);
                     speech
+                      .addText(scorerCount[scorer.scorer_name] + ' Mal', moreThanOneGoal && !isLastScorer)
                       .addText(scorer.scorer_name + ',', !isLastScorer)
-                      .addText('und ' + scorer.scorer_name + '.', isLastScorer);
+                      .addText('und', isLastScorer)
+                      .addText(scorerCount[scorer.scorer_name] + ' Mal', moreThanOneGoal && isLastScorer)
+                      .addText(scorer.scorer_name, isLastScorer)
                   });
                 }
               }
